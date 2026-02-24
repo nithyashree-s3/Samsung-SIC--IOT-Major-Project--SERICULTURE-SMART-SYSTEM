@@ -1,0 +1,1 @@
+# Samsung-SIC--IOT-Major-Project--SERICULTURE-SMART-SYSTEM
