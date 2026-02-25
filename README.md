@@ -35,65 +35,70 @@ Enables remote monitoring and control
 
 📊 Live data visualization through mobile dashboard
 
-🛠 Hardware Components
 
-Raspberry Pi
 
-DHT11 Temperature & Humidity Sensor
+🚀 How to Run the Project
+1️⃣ Hardware Requirements
 
-Relay Module
+Raspberry Pi (with Raspberry Pi OS installed)
 
-DC Fan
+DHT11 Sensor
+
+Relay Module (2 Channel)
+
+Fan
 
 Water Pump
 
-LED Indicator
+LED
 
 Jumper Wires
 
-💻 Software & Technologies
+Power Supply
+
+2️⃣ Software Requirements
 
 Python 3.11
 
-Blynk IoT Platform (Cloud)
+Required Libraries:
 
-Raspberry Pi OS
-
-Libraries Used
+RPi.GPIO
 
 BlynkLib
 
 adafruit_dht
 
-RPi.GPIO
-
 board
 
-⚙️ System Architecture & Working
+3️⃣ Install Required Libraries
+sudo apt update
+pip3 install blynklib
+pip3 install adafruit-circuitpython-dht
+pip3 install RPi.GPIO
+4️⃣ Set Blynk Authentication Token
 
-The DHT11 sensor continuously captures temperature and humidity readings.
+Replace this line in main.py:
 
-The Raspberry Pi processes the sensor data in real time.
+BLYNK_AUTH = "YOUR_AUTH_TOKEN"
 
-If:
+With your Blynk Cloud token.
 
-Temperature > 25°C → Fan turns ON automatically
+5️⃣ Run the Project
+python3 main.py
+6️⃣ Open Blynk Mobile App
 
-Humidity < 50% → Pump turns ON automatically
+Add widgets connected to Virtual Pins:
 
-Live sensor readings and device status are transmitted to Blynk Cloud.
+V0 → Temperature
 
-Users can monitor environmental data and manually override device controls through the Blynk mobile application.
+V1 → Humidity
 
-📲 Blynk Virtual Pin Configuration
-Virtual Pin	Function
-V0	Temperature
-V1	Humidity
-V2	Fan Status
-V3	Pump Status
-V4	Fan Control
-V5	Pump Control
-V6	System Status
+V4 → Fan Control
+
+V5 → Pump Control
+
+Monitor system in real-time.
+
 🌍 Applications
 
 Smart Sericulture Farms
